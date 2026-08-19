@@ -1,5 +1,9 @@
-# linux-nas-media-duplicate-finder
-Find duplicate media content across NAS shares and volumes from Linux using fclones and SMB/CIFS. A safe, read-only workflow developed with Debian and Synology DSM.
+
+## Synology Media Content Duplicate Finder
+Find duplicate media content across multiple Synology volumes and SMB shares from a Debian/Linux system using fclones.
+This project documents a practical workflow for analysing a media library that is distributed across multiple NAS shares and storage volumes.
+Instead of searching individual folders separately, Synology SMB shares are mounted below a single directory tree on Linux. This allows fclones to compare media files across otherwise separate shares and volumes.
+Safe by design: this workflow uses fclones group. It reads and compares files and generates a report without deleting, moving, linking or modifying the original media.
 
 ## Workflow
 
@@ -20,12 +24,6 @@ Synology / NAS
       ▼
  Media Content
 
-Synology Media Content Duplicate Finder
-Find duplicate media content across multiple Synology volumes and SMB shares from a Debian/Linux system using fclones.
-This project documents a practical workflow for analysing a media library that is distributed across multiple NAS shares and storage volumes.
-Instead of searching individual folders separately, Synology SMB shares are mounted below a single directory tree on Linux. This allows fclones to compare media files across otherwise separate shares and volumes.
-Safe by design: this workflow uses fclones group. It reads and compares files and generates a report without deleting, moving, linking or modifying the original media.
-
 Overview
 Media libraries tend to grow organically.
 entertainment, downloads and other media may eventually exist in several locations:
@@ -34,9 +32,11 @@ entertainment, downloads and other media may eventually exist in several locatio
 ├── Downloads
 ├── Entertainment
 └── Media
+
 A duplicate stored in two different shares can easily go unnoticed.
 Scanning each share independently does not solve that problem: a duplicate in a SMB share and another SMB share must be part of the same comparison to be detected.
 The solution used here is:
+
 Synology
    │
    ├── SMB share
